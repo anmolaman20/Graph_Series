@@ -34,3 +34,23 @@ public:
         vector<vector<int>> dp((1 << n), vector<int>(n, -1));
         return tsp(1, 0, n, cost, dp);
     }
+};
+
+int main()
+{
+    int tc;
+    cin >> tc;
+    while (tc--)
+    {
+        int n;
+        cin >> n;
+        vector<vector<int>> cost(n, vector<int>(n, 0));
+        for (int i = 0; i < n; i++)
+            for (int j = 0; j < n; j++)
+                cin >> cost[i][j];
+        Solution obj;
+        int ans = obj.total_cost(cost);
+        cout << ans << "\n";
+    }
+    return 0;
+}

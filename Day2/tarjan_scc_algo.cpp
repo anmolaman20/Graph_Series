@@ -67,3 +67,42 @@ public:
         return ans;
     }
 };
+
+int main()
+{
+
+    int t;
+    cin >> t;
+    while (t--)
+    {
+        int V, E;
+        cin >> V >> E;
+
+        vector<int> adj[V];
+
+        for (int i = 0; i < E; i++)
+        {
+            int u, v;
+            cin >> u >> v;
+            adj[u].push_back(v);
+        }
+
+        Solution obj;
+        vector<vector<int>> ptr = obj.tarjans(V, adj);
+
+        for (int i = 0; i < ptr.size(); i++)
+        {
+            for (int j = 0; j < ptr[i].size(); j++)
+            {
+                if (j == ptr[i].size() - 1)
+                    cout << ptr[i][j];
+                else
+                    cout << ptr[i][j] << " ";
+            }
+            cout << ',';
+        }
+        cout << endl;
+    }
+
+    return 0;
+}
